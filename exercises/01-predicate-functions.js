@@ -20,6 +20,25 @@
 // isVowel('A') --> true
 // isVowel(99) --> false
 // isVowel({e: 'Elephant'}) --> false
+var vowels = {
+    a: true,
+    e: true,
+    i: true,
+    o: true,
+    u: true,
+}
+var output = '';
+function isVowel (enterLetter) {
+    if (enterLetter in vowels){
+        output = true
+    }
+    else {
+        output = false;
+    }
+return output
+}
+isVowel('a')
+
 
 
 
