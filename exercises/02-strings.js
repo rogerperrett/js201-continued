@@ -7,7 +7,13 @@
 //
 // Example:
 // reverse("skoob") --> "books"
-
+function reverse (inputString) {
+    var splitString = inputString.split('');
+    var reverseString = splitString.reverse();
+    var joinString = reverseString.join('');
+    return joinString;
+}
+reverse('skoob')
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,8 +23,19 @@
 //
 // Example:
 // findLongestWord('a book full of dogs') --> 'book'
-
-
+function findLongestWord (inputString) {
+    var splitString = inputString.split(' ')
+    var longestWord = 0;
+    var word = null;
+    for(var i = 0; i < splitString.length; i++) {
+        if(longestWord < splitString[i].length) {
+            longestWord = splitString[i].length;
+            word = splitString[i]
+        }
+    }
+    return word;
+}
+findLongestWord('a book full of dogs')
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "nicer"
@@ -28,7 +45,11 @@
 // Example:
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
-
+function nicer (inputString) {
+    var forbiddenWords = inputString.replace(/heck |darn |dang |crappy /gi, '')
+    return forbiddenWords
+   }
+   nicer('mom get the heck in here and bring me a darn sandwich.')
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,8 +60,16 @@
 // Examples:
 // capitalizeAll('hello world') --> 'Hello World'
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
-
-
+function capitalizeAll (inputString) {
+    return inputString
+    .toLowerCase()
+    .split(' ')
+    .map(function(word) {
+        return word[0].toUpperCase() + word.substr(1);
+    })
+    .join(' ');
+}
+capitalizeAll('every day is like sunday')
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "split" that does the same thing as String.split
@@ -52,3 +81,6 @@
 // split('a-b-c', '-') --> ['a', 'b', 'c']
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
+function split () {
+
+}
