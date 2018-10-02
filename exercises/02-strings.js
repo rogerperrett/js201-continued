@@ -61,10 +61,7 @@ function nicer (inputString) {
 // capitalizeAll('hello world') --> 'Hello World'
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
 function capitalizeAll (inputString) {
-    return inputString
-    .toLowerCase()
-    .split(' ')
-    .map(function(word) {
+    return inputString.toLowerCase().split(' ').map(function(word) {
         return word[0].toUpperCase() + word.substr(1);
     })
     .join(' ');
@@ -81,6 +78,19 @@ capitalizeAll('every day is like sunday')
 // split('a-b-c', '-') --> ['a', 'b', 'c']
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
-function split () {
-
+function split(stringInput, delimiterInput) {
+	var splitWord = stringInput.replace(new RegExp(delimiterInput, 'g'), '*');
+	var stringInputArray = [''];
+	var findDelimiter = 0;
+	var newDelimiter = '*';
+	for (var i = 0; i < splitWord.length; i++) {
+		if (splitWord.charAt(i) == newDelimiter) {
+			findDelimiter++;
+			stringInputArray.push('');
+		} else {
+			stringInputArray[findDelimiter] += splitWord.charAt(i);
+		}
+	}
+	return stringInputArray;
 }
+split('a-b-c', '-')
